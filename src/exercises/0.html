@@ -7,8 +7,10 @@
     {{> header-bar }}
 
     <div class="flex flex-col gap-4 container">
+      <input class="input input-bordered" id="base" />
+      <input class="input input-bordered" id="height" />
       <button class="btn btn-primary" onclick="calculate()">Submit</button>
-      <div id="result">lorenzo</div>
+      <div id="result"></div>
     </div>
   </body>
 
@@ -16,6 +18,18 @@
     const triangleAir = (base, height) => (base * height) / 2;
 
     const calculate = () => {
+      //penser à ajouter number au cas où l'utilisateur entre une chaine de caractère.
+      const base = Number(document.querySelector('#base').value);
+      const height = Number(document.querySelector('#height').value);
+
+      if (base == '' || height == '') {
+        alert('Veuillez entrer toutes les valeurs !');
+      } else if (Number.isNaN(base) || Number.isNaN(height)) {
+        alert('Entrez uniquement les nombres');
+      } else {
+        document.querySelector('#result').innerText = triangleAir(base, height);
+      }
+
       // 🦁 Vient calculer l'air pour un triangle de base 5 et de hauteur 10.
       // 🦁 Affichez le résultat dans la div "result".
     };
