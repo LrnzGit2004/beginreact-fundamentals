@@ -3,17 +3,29 @@
   {{> head}}
   <body>
     {{> header-bar }}
+
+    <div class="container" id="root"></div>
   </body>
 
   <script>
     // 🦁 crée un div avec l'id "root" et la classe "container"
-    
+    const root = document.querySelector('#root');
     // 🦁 crée un button
-    
+    const button = document.createElement('button');
     // 🦁 ajoute les classes "btn" et "btn-primary" dedans
-    
+    button.classList.add('btn','btn-primary');
     // 🦁 ajoute le text "Hello 👋" dedans
-    
+    button.innerText = ("Hello 👋");
     // 🦁 ajoute le button dans l'élément "root"
+    root.appendChild(button);
+
+    //partie 2
+    //la solution de melvyn
+    button.addEventListener('click', ()=>{
+      //return un truc
+      alert('Vous avez cliqué sur le bouton !')
+    })
+    // button.addEventListener(onclick=()=>{alert('Vous avez cliqué sur le bouton !')}) toujours ce que j'ai fait
+    // root.onclick(alert('Vous avez cliqué sur le bouton !')) ce que j'ai fait lol !
   </script>
 </html>
